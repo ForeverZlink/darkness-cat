@@ -1,0 +1,33 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # O workflow será acionado quando houver um push para a branch 'main'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # O job será executado em uma máquina Ubuntu
+
+    steps:
+      - name: Checkout repository # Passo para clonar o repositório
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js # Passo para configurar o ambiente Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Define a versão do Node.js a ser utilizada
+
+      - name: Install dependencies # Passo para instalar as dependências do projeto
+        run: npm install
+
+      - name: Build React App # Passo para construir o aplicativo React para produção
+        run: npm run build
+
+      - name: Deploy to GitHub Pages # Passo para fazer o deploy para o GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Token de acesso fornecido pelo GitHub Actions
+          publish_dir: ./build # O diretório que será publicado (saída do npm run build)
+          publish_branch: gh-pages # A branch para onde os arquivos serão publicados no GitHub Pages
+          # cname: seu-dominio.com # Descomente e substitua se você tiver um domínio personalizado
