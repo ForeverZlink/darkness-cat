@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState,  useRef } from 'react';
 
 // A imagem do cachorrinho será acessada a partir da pasta 'public'
 // Usamos process.env.PUBLIC_URL para garantir que o caminho funcione corretamente
