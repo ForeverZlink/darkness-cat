@@ -155,7 +155,7 @@ const App = () => {
             transform: 'translate(-50%, -50%)', // Centraliza o coração em sua posição
           }}
         >
-          ❤️
+          ❤️ ROBERTA
         </div>
       ))}
 
