@@ -195,7 +195,7 @@ const App = () => {
       {hearts.map(heart => (
         <div
           key={heart.id}
-          className="text-pink-500 heart-animation z-0"
+          className="text-pink-500 heart-animation z-50"
           style={{
             left: heart.x,
             top: heart.y,
